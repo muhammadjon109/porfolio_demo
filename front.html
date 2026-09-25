@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammadjon — future programmer</title>
+<style>
+  :root{
+    --bg1: #6a3df5;
+    --bg2: #00c2d1;
+    --pink: #ff4d8d;
+    --yellow: #ffcf3f;
+    --teal: #00c2a8;
+    --purple: #8b5cf6;
+    --orange: #ff7a3d;
+    --ink: #1a1330;
+    --paper: #ffffff;
+  }
+
+  *{ box-sizing: border-box; }
+
+  body{
+    margin:0;
+    background: linear-gradient(160deg, #6a3df5 0%, #a855f7 30%, #00c2d1 70%, #00e0a0 100%);
+    background-attachment: fixed;
+    color: var(--ink);
+    font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+    line-height: 1.6;
+  }
+
+  .hero{
+    position: relative;
+    height: 60vh;
+    min-height: 380px;
+    overflow: hidden;
+    border-bottom: 8px solid var(--yellow);
+  }
+
+  .hero img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .hero::after{
+    content:"";
+    position:absolute; inset:0;
+    background: linear-gradient(180deg, rgba(107,42,245,0.25) 0%, rgba(0,60,80,0.75) 100%);
+  }
+
+  .hero-text{
+    position:absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 2.4rem 1.5rem 2rem;
+    color: #fff;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .hero-text .mark{
+    display:inline-block;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    color: var(--ink);
+    background: var(--yellow);
+    padding: 0.15rem 0.6rem;
+    border-radius: 999px;
+    margin-bottom: 0.6rem;
+    font-weight: 700;
+  }
+
+  .hero-text h1{
+    font-size: 3rem;
+    margin: 0 0 0.3rem;
+    font-weight: 800;
+    text-shadow: 2px 3px 0 rgba(0,0,0,0.25);
+  }
+
+  .hero-text .role{
+    font-size: 1.2rem;
+    color: var(--yellow);
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .wrap{
+    max-width: 760px;
+    margin: -2rem auto 0;
+    padding: 0 1.2rem 4rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .block{
+    background: var(--paper);
+    border-radius: 18px;
+    padding: 1.6rem 1.7rem;
+    margin: 1.2rem 0;
+    box-shadow: 0 10px 30px rgba(30,10,60,0.25);
+    border-top: 6px solid var(--purple);
+  }
+
+  .block:nth-of-type(2){ border-top-color: var(--pink); }
+  .block:nth-of-type(3){ border-top-color: var(--teal); }
+  .block:nth-of-type(4){ border-top-color: var(--orange); }
+
+  .block h2{
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--purple);
+    margin: 0 0 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .block p{
+    margin: 0;
+    font-size: 1.05rem;
+  }
+
+  .school-card{
+    display:flex;
+    gap: 1.2rem;
+    align-items: center;
+    background: linear-gradient(120deg, #fff6e0, #ffe4f0);
+    border-radius: 14px;
+    padding: 1rem 1.2rem;
+    margin-top: 0.6rem;
+  }
+
+  .school-card img{
+    width: 50px; height: 50px;
+    object-fit: contain;
+  }
+
+  .school-card div p{ font-size: 0.95rem; color: #55503f; }
+  .school-card div strong{ font-size: 1.15rem; color: var(--ink); }
+
+  .code{
+    background: #241b40;
+    border-radius: 12px;
+    padding: 1.2rem 1.4rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.95rem;
+    color: #f4f0ff;
+    margin-top: 1rem;
+    white-space: pre-wrap;
+  }
+
+  .code .kw{ color: #6ee7ff; }
+  .code .str{ color: #ffd166; }
+
+  .gallery{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.7rem;
+    margin-top: 1rem;
+  }
+
+  .gallery figure{
+    margin: 0;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 14px rgba(30,10,60,0.2);
+  }
+
+  .gallery img{
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .gallery figcaption{
+    position: absolute;
+    left:0; right:0; bottom:0;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(0deg, rgba(0,0,0,0.65), transparent);
+  }
+
+  .gallery figure.img-broken{
+    background: linear-gradient(135deg, var(--purple), var(--teal));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .gallery figure.img-broken img{ display:none; }
+  .gallery figure.img-broken figcaption{
+    position: static;
+    background: none;
+    font-size: 0.85rem;
+    text-align: center;
+  }
+
+  .hero.img-broken{ background: linear-gradient(135deg, var(--purple), var(--teal), var(--orange)); }
+  .hero.img-broken img{ display:none; }
+
+  @media (max-width: 560px){
+    .gallery{ grid-template-columns: repeat(2, 1fr); }
+    .hero-text h1{ font-size: 2.1rem; }
+  }
+
+  footer{
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  footer a{ color: var(--yellow); }
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <img src="https://school.dombit.uz/img/campus-life/building-entrance.avif" alt="Dombit International School building entrance" onerror="this.onerror=null;this.closest('.hero').classList.add('img-broken')">
+    <div class="hero-text">
+      <span class="mark">// intro.html</span>
+      <h1>Muhammadjon 🚀</h1>
+      <p class="role">future programmer · studying at Dombit International School</p>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <div class="block">
+      <h2>👋 about</h2>
+      <p>I'm learning the fundamentals of programming right now, one step at a time. My goal is to grow into a real software developer and eventually build things that people actually use.</p>
+    </div>
+
+    <div class="block">
+      <h2>🏫 studying at</h2>
+      <div class="school-card">
+        <img src="https://school.dombit.uz/dombit-mark.svg" alt="Dombit mark">
+        <div>
+          <strong>Dombit International School</strong>
+          <p>Namangan, Uzbekistan — English-medium education, grades 1–11</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>📸 campus life</h2>
+      <div class="gallery">
+        <figure>
+          <img src="https://school.dombit.uz/img/campus-life/computer-lab.jpg" alt="Computer lab" onerror="this.onerror=null;this.closest('figure').classList.add('img-broken')">
+          <figcaption>computer lab</figcaption>
+        </figure>
+        <figure>
+          <img src="https://school.dombit.uz/img/campus-life/library.avif" alt="School library" onerror="this.onerror=null;this.closest('figure').classList.add('img-broken')">
+          <figcaption>library</figcaption>
+        </figure>
+        <figure>
+          <img src="https://school.dombit.uz/img/campus-life/teamwork.jpg" alt="Students teamwork" onerror="this.onerror=null;this.closest('figure').classList.add('img-broken')">
+          <figcaption>teamwork</figcaption>
+        </figure>
+        <figure>
+          <img src="https://school.dombit.uz/img/campus-life/physics-classroom.avif" alt="Physics classroom" onerror="this.onerror=null;this.closest('figure').classList.add('img-broken')">
+          <figcaption>physics class</figcaption>
+        </figure>
+        <figure>
+          <img src="https://school.dombit.uz/img/campus-life/yard.jpg" alt="School yard" onerror="this.onerror=null;this.closest('figure').classList.add('img-broken')">
+          <figcaption>school yard</figcaption>
+        </figure>
+        <figure>
+          <img src="https://school.dombit.uz/img/campus-life/sports-hall.avif" alt="Indoor sports hall" onerror="this.onerror=null;this.closest('figure').classList.add('img-broken')">
+          <figcaption>sports hall</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>💻 a small line of code, for now</h2>
+      <div class="code"><span class="kw">const</span> me = {
+  name: <span class="str">"Muhammadjon"</span>,
+  school: <span class="str">"Dombit International School"</span>,
+  status: <span class="str">"learning to code"</span>,
+  goal: <span class="str">"become a programmer"</span>
+};</div>
+    </div>
+
+    <footer>built with html &amp; css · photos courtesy of <a href="https://school.dombit.uz">school.dombit.uz</a></footer>
+  </div>
+</body>
+</html>
